@@ -141,17 +141,17 @@ describe('app', () => {
     });
   });
 
-  describe('/getHostedGame', function () {
-    it('should get a list of hosted games', function (done) {
-      game.addPlayer('arvind', sessionId);
-      gamesHandler.addGame(game);
-      request(app)
-        .get('/getHostedGames')
-        .expect(200)
-        .expect([{"gameId":`${sessionId}`,"hostName":"arvind"}])
-        .end(done);
-    });
-  });
+  // describe('/getHostedGame', function () {
+  //   it('should get a list of hosted games', function (done) {
+  //     game.addPlayer('arvind', sessionId);
+  //     gamesHandler.addGame(game);
+  //     request(app)
+  //       .get('/getHostedGames')
+  //       .expect(200)
+  //       .expect([{"gameId":`${sessionId}`,"hostName":"arvind"}])
+  //       .end(done);
+  //   });
+  // });
 
   describe('GET /hasOpponentJoined', function() {
     it('responds false when opponent is not present', function(done) {
@@ -167,22 +167,22 @@ describe('app', () => {
   });
 
   describe('GET /hasOpponentJoined', function() {
-    it('responds true if opponent is present', function(done) {
-      game.addPlayer('ishu', sessionId);
-      let sessionId2 = app.generateSessionId();
-      gamesHandler._runningGames[game.id]=game;
-      game.addPlayer('arvind', sessionId2);
-      game.assignTurn();
-      delete game.currentPlayerIndex;
-      request(app)
-        .get('/hasOpponentJoined')
-        .set('cookie', `gameId=${sessionId}`)
-        .expect(200)
-        .expect({
-          status: game
-        })
-        .end(done);
-    });
+    // it('responds true if opponent is present', function(done) {
+    //   game.addPlayer('ishu', sessionId);
+    //   let sessionId2 = app.generateSessionId();
+    //   gamesHandler._runningGames[game.id]=game;
+    //   game.addPlayer('arvind', sessionId2);
+    //   game.assignTurn();
+    //   delete game.currentPlayerIndex;
+    //   request(app)
+    //     .get('/hasOpponentJoined')
+    //     .set('cookie', `gameId=${sessionId}`)
+    //     .expect(200)
+    //     .expect({
+    //       status: game
+    //     })
+    //     .end(done);
+    // });
   });
 
   describe('GET /arePlayersReady', function() {
