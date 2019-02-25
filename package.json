@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "preinstall": "sh bin/tools.sh",
     "start": "node server.js",
     "nodemon": "nodemon -w src -w server.js -w app.js",
     "test": "mocha --recursive"
